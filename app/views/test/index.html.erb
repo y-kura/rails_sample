@@ -1,0 +1,66 @@
+
+<p id="notice"><%= notice %></p>
+
+<% if session[:user_id] %>
+<center>
+<%= link_to '　新しい画像の投稿　', '/test/add', class: 'btn btn-outline-secondary' %><br>
+</center>
+<br>
+<% end %>
+
+
+
+<ul class = "tile">
+<% @blogs.each do |blog| %>
+  <li>
+    <a href="<%= url_for '/test/show/' + blog[:id].to_s %>">
+    <img src="<%= url_for '/test/image/' + blog[:id].to_s %>" width="140px">
+    </a>
+    <p><%= blog.title %></p>
+  </li>
+<% end %>
+</ul>
+
+
+
+<!--
+<div class="card-columns">
+<% @blogs.each do |blog| %>
+  <div class="card" style="width:140px;">
+    <a href="<%= url_for '/test/show/' + blog[:id].to_s %>">
+      <img src="<%= url_for '/test/image/' + blog[:id].to_s %>" width="138px">
+    </a>
+    <div class="card-body">
+      <p class="card-text"><%= blog.title %></p>
+    </div>
+  </div>
+<% end %>
+</div>
+<br>
+-->
+
+<!--
+<table class="table">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th colspan="3">アクション</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= link_to '表示', '/test/show/' + blog[:id].to_s %></td>
+        <td><%= link_to '編集', '/test/edit/' + blog[:id].to_s %></td>
+        <td><%= link_to '削除', '/test/delete/' + blog[:id].to_s, method: :delete, data: { confirm: '削除してもよろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
+
+<br>
+
+

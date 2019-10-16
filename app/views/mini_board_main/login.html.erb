@@ -1,0 +1,24 @@
+<br>
+<div class="jumbotron">
+
+<h1><%= @board[:title] %></h1>
+<p class="lead">
+パスワードを入力してログインしてください。<br>
+</p>
+<br>
+
+<%= form_for(@auth_board, :url => {:controller => 'main', :action => 'index'}) do |f| %>
+  <% if @msg %>
+    <div class="alert alert-danger"><%= @msg %></div>
+  <% end %>
+
+  <div>
+    <b>Password</b><br>
+    <%= f.password_field :password, :class => 'form-control input-lg' %>
+  </div>
+  <br>
+  <%= f.submit '　　　Login　　　', :class => 'btn btn-primary btn-lg' %><br>
+  <br>
+<% end %>
+
+</div>

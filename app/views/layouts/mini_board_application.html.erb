@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @titletag %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <style>
+  body {
+    font-family:'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+  }
+  .container {
+    max-width: 580px;
+  }
+  .jumbotron p {
+    font-size: 18px;
+  }
+  .alert-danger {
+    border: none;
+  }
+  .msg_name {
+    margin-left: 5px;
+    color: #999;
+  }
+  .msg_date {
+    margin-right: 2px;
+    color: #ccc;
+    text-align: right;
+    font-size: x-small;
+  }
+  pre {
+    background-color: #f0f0f0;
+    border: none;
+    margin-bottom: 0px;
+  }
+  </style>
+</head>
+<body>
+<div class="container">
+<%= yield %>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<br>
+<div class="jumbotron">
+
+<h1>mini board</h1>
+<p class="lead">
+まず始めに掲示板のタイトルとパスワードを設定してください。<br>
+</p>
+<br>
+
+<%= form_for(@board, :url => {:controller => 'main', :action => 'index'}) do |f| %>
+  <% if @board.errors.any? %>
+    <div class="alert alert-danger"><%= @board.errors.messages.shift[1].shift %></div>
+  <% end %>
+
+  <div>
+    <b>Title</b><br>
+  	<%= f.text_field :title, :class => 'form-control input-lg' %>
+  </div>
+  <br>
+  <div>
+    <b>Password</b><br>
+    <%= f.text_field :password, :class => 'form-control input-lg' %>
+  </div>
+  <br>
+  <%= f.submit '　　　OK　　　', :class => 'btn btn-primary btn-lg' %><br>
+  <br>
+<% end %>
+
+</div>

@@ -1,0 +1,36 @@
+<br>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="<%= url_for '/users/login' %>">ログイン</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active"><b>新規登録</b></a>
+  </li>
+</ul>
+<br>
+
+<% if @error %>
+<div class="alert alert-danger" role="alert"><%= @error %></div>
+<% end %>
+
+<form action="<%= url_for '/users/new' %>" method="post">
+
+  <div class="form-group">
+  <label>ログインID</label>
+  <input type="text" class="form-control" name="name">
+  </div>
+
+  <div class="form-group">
+  <label>パスワード</label>
+  <input type="password" class="form-control" name="password">
+  </div>
+
+  <div class="form-group">
+  <label>パスワード（確認）</label>
+  <input type="password" class="form-control" name="password_confirm">
+  </div>
+
+  <button type="submit" class="btn btn-success">　新規登録　</button>
+
+</form>

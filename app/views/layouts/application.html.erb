@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Railsの勉強</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+  <style>
+  body {
+  }
+  .container {
+    max-width: 580px;
+  }
+  .jumbotron p {
+    font-size: 18px;
+  }
+  .alert-danger {
+    border: none;
+  }
+  .msg_name {
+    margin-left: 5px;
+    color: #999;
+  }
+  .msg_date {
+    margin-right: 2px;
+    color: #ccc;
+    text-align: right;
+    font-size: x-small;
+  }
+
+  .nav-tabs a:hover {
+    background:#fff;
+  }
+  .nav-tabs a {
+    font-size: 20px;
+  }
+
+  ul.tile {
+    padding: 5px;
+  }
+  ul.tile li {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 7px;
+  }
+  ul.tile p {
+    font-size: 16px;
+    margin: 10px;
+  }
+  ul.tile img {
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark" style="background-color:#000">
+  <div class="container">
+    <a class="navbar-brand" style="color:#fff" href="<%= url_for '/test' %>">画像共有サイト(sample)</a>
+    <% if session[:user_id] %>
+    <button class="btn btn-outline-light" onclick="location.href='<%= url_for '/users/logout' %>'"><i class="fa fa-user"></i> <%= session[:name] %></button>
+    <% else %>
+    <button class="btn btn-outline-light" onclick="location.href='<%= url_for '/users/login' %>'">ログイン</button>
+    <% end %>
+  </div>
+</nav>
+
+<div class="container">
+  <%= yield %>
+  </div>
+  <%= @debug %>
+</body>
+</html>
